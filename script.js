@@ -11,17 +11,29 @@ function Book(title, author, pages, read) {
 }
 const theHobbit = new Book("The Hobbit", "JRR Tolken", 295, "not read");
 const redRising = new Book("Red Rising", "Pierce Brown", 382, "read");
+myLibrary.push(theHobbit);
+myLibrary.push(redRising);
 // const spellmonger = new Book("SpellMonger", "Terry Mancour", 624, "read");
 
 function addBookToLibrary() {
   title = prompt("Book Title:");
   author = prompt("Book Author:");
-  pages = prompt("Number of pages:");
+  pages = parseInt(prompt("Number of pages:"));
   read = prompt("Have you read this book?");
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
 }
 
+function bookReport() {
+  for (const book of myLibrary) {
+    console.log(book);
+  }
+}
+
+function bookReport2() {
+  // use forEach ?
+  // https://stackoverflow.com/questions/3010840/loop-through-an-array-in-javascript
+}
 // function to loop through myLibrary array and display each book.
 // Either in a table or on a 'card'
 
