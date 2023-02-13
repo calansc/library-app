@@ -88,6 +88,8 @@ libraryCreation();
 // New book button to bring a form to add a new book.
 // 'submit' tries to send data to a server.
 // Review event.preventDefault(); documentation to solve this
+// Popup box
+// https://www.w3docs.com/snippets/javascript/how-to-create-a-popup-form-using-javascript.html
 
 // Add button on each book's display to remove from library
 

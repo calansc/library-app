@@ -2,3 +2,19 @@
     font-weight: bold;
     font-size: 24px;
 }
+.bookLibrary {
+    display: grid;
+    gap:16px;
+    grid-template-columns: repeat(auto-fit, minmax(164px,1fr));
+}
+.bookTile {
+    width: 128px;
+    display:grid;
+    padding:8px;
+}
+.bookTitle {
+    font-weight: bold;
+}
+.removeButton {
+    width:100px;
+}
