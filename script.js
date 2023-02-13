@@ -30,10 +30,58 @@ function bookReport() {
   }
 }
 
-function bookReport2() {
-  // use forEach ?
-  // https://stackoverflow.com/questions/3010840/loop-through-an-array-in-javascript
+const bookLibrary = document.querySelector(".bookLibrary");
+const bookTile = document.querySelector(".bookTile");
+
+function libraryCreation() {
+  myLibrary.forEach((book) => {
+    // console.log(book);
+    let div = document.createElement("div");
+    bookLibrary.appendChild(div);
+    div.classList.add("bookTile");
+    div.setAttribute("style", "border:red solid 1px");
+
+    let divTitle = document.createElement("div");
+    bookLibrary.lastChild.appendChild(divTitle);
+    divTitle.classList.add("bookTitle");
+    divTitle.textContent = book.title;
+
+    let divAuthor = document.createElement("div");
+    bookLibrary.lastChild.appendChild(divAuthor);
+    divAuthor.classList.add("bookAuthor");
+    divAuthor.textContent = book.author;
+
+    let divPages = document.createElement("div");
+    bookLibrary.lastChild.appendChild(divPages);
+    divPages.classList.add("bookPages");
+    divPages.textContent = book.pages;
+
+    let divRead = document.createElement("div");
+    bookLibrary.lastChild.appendChild(divRead);
+    divRead.classList.add("bookRead");
+    divRead.textContent = book.read;
+
+    let removeButton = document.createElement("button");
+    bookLibrary.lastChild.appendChild(removeButton);
+    removeButton.classList.add("removeButton");
+    removeButton.textContent = "Remove Book";
+  });
 }
+
+function libraryReset() {
+  while (bookLibrary.firstChild) {
+    bookLibrary.removeChild(bookLibrary.firstChild);
+  }
+}
+
+const addBookButton = document.querySelector(".addBookButton");
+addBookButton.addEventListener("click", addBookToLibrary, false);
+
+libraryCreation();
+
+// use forEach ?
+// https://stackoverflow.com/questions/3010840/loop-through-an-array-in-javascript
+
 // function to loop through myLibrary array and display each book.
 // Either in a table or on a 'card'
 
