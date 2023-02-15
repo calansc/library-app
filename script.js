@@ -24,7 +24,15 @@ function bookReport() {
 const bookLibrary = document.querySelector(".bookLibrary");
 const bookTile = document.querySelector(".bookTile");
 
-let bookCounter = 0;
+function removeBook() {
+  // console.log(this.id);
+  let cardId = Array.from(this.parentNode.parentNode.children).indexOf(
+    this.parentNode
+  );
+  // console.log(cardId);
+  let delFromLibrary = myLibrary.splice(cardId, 1);
+  this.parentNode.remove();
+}
 
 function cardCreation(book) {
   // console.log(book);
@@ -57,6 +65,11 @@ function cardCreation(book) {
   bookLibrary.lastChild.appendChild(removeButton);
   removeButton.classList.add("removeButton");
   removeButton.textContent = "Remove Book";
+
+  let removeBookButton = document.querySelectorAll(".removeButton");
+  for (let i = 0; i < removeBookButton.length; i++) {
+    removeBookButton[i].addEventListener("click", removeBook, false);
+  }
 }
 
 function libraryCreation() {
@@ -80,8 +93,6 @@ function libraryReset() {
     bookLibrary.removeChild(bookLibrary.firstChild);
   }
 }
-
-function removeBook() {}
 
 const addBookButton = document.querySelector(".addBookButton");
 addBookButton.addEventListener("click", addBookToLibrary, false);
