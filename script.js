@@ -15,15 +15,6 @@ myLibrary.push(theHobbit);
 myLibrary.push(redRising);
 // const spellmonger = new Book("SpellMonger", "Terry Mancour", 624, "read");
 
-function addBookToLibrary() {
-  title = prompt("Book Title:");
-  author = prompt("Book Author:");
-  pages = parseInt(prompt("Number of pages:"));
-  read = prompt("Have you read this book?");
-  let newBook = new Book(title, author, pages, read);
-  myLibrary.push(newBook);
-}
-
 function bookReport() {
   for (const book of myLibrary) {
     console.log(book);
@@ -33,39 +24,55 @@ function bookReport() {
 const bookLibrary = document.querySelector(".bookLibrary");
 const bookTile = document.querySelector(".bookTile");
 
+let bookCounter = 0;
+
+function cardCreation(book) {
+  // console.log(book);
+  let div = document.createElement("div");
+  bookLibrary.appendChild(div);
+  div.classList.add("bookTile");
+  div.setAttribute("style", "border:red solid 1px");
+
+  let divTitle = document.createElement("div");
+  bookLibrary.lastChild.appendChild(divTitle);
+  divTitle.classList.add("bookTitle");
+  divTitle.textContent = book.title;
+
+  let divAuthor = document.createElement("div");
+  bookLibrary.lastChild.appendChild(divAuthor);
+  divAuthor.classList.add("bookAuthor");
+  divAuthor.textContent = book.author;
+
+  let divPages = document.createElement("div");
+  bookLibrary.lastChild.appendChild(divPages);
+  divPages.classList.add("bookPages");
+  divPages.textContent = book.pages;
+
+  let divRead = document.createElement("div");
+  bookLibrary.lastChild.appendChild(divRead);
+  divRead.classList.add("bookRead");
+  divRead.textContent = book.read;
+
+  let removeButton = document.createElement("button");
+  bookLibrary.lastChild.appendChild(removeButton);
+  removeButton.classList.add("removeButton");
+  removeButton.textContent = "Remove Book";
+}
+
 function libraryCreation() {
   myLibrary.forEach((book) => {
-    // console.log(book);
-    let div = document.createElement("div");
-    bookLibrary.appendChild(div);
-    div.classList.add("bookTile");
-    div.setAttribute("style", "border:red solid 1px");
-
-    let divTitle = document.createElement("div");
-    bookLibrary.lastChild.appendChild(divTitle);
-    divTitle.classList.add("bookTitle");
-    divTitle.textContent = book.title;
-
-    let divAuthor = document.createElement("div");
-    bookLibrary.lastChild.appendChild(divAuthor);
-    divAuthor.classList.add("bookAuthor");
-    divAuthor.textContent = book.author;
-
-    let divPages = document.createElement("div");
-    bookLibrary.lastChild.appendChild(divPages);
-    divPages.classList.add("bookPages");
-    divPages.textContent = book.pages;
-
-    let divRead = document.createElement("div");
-    bookLibrary.lastChild.appendChild(divRead);
-    divRead.classList.add("bookRead");
-    divRead.textContent = book.read;
-
-    let removeButton = document.createElement("button");
-    bookLibrary.lastChild.appendChild(removeButton);
-    removeButton.classList.add("removeButton");
-    removeButton.textContent = "Remove Book";
+    cardCreation(book);
   });
+}
+
+function addBookToLibrary() {
+  title = prompt("Book Title:");
+  author = prompt("Book Author:");
+  pages = parseInt(prompt("Number of pages:"));
+  read = prompt("Have you read this book?");
+  let newBook = new Book(title, author, pages, read);
+  myLibrary.push(newBook);
+  cardCreation(newBook);
 }
 
 function libraryReset() {
@@ -73,6 +80,8 @@ function libraryReset() {
     bookLibrary.removeChild(bookLibrary.firstChild);
   }
 }
+
+function removeBook() {}
 
 const addBookButton = document.querySelector(".addBookButton");
 addBookButton.addEventListener("click", addBookToLibrary, false);
