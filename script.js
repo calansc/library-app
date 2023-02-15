@@ -34,6 +34,14 @@ function removeBook() {
   this.parentNode.remove();
 }
 
+function readSwitch() {
+  if (this.textContent === "read") {
+    this.textContent = "not read";
+  } else {
+    this.textContent = "read";
+  }
+}
+
 function cardCreation(book) {
   // console.log(book);
   let div = document.createElement("div");
@@ -56,7 +64,7 @@ function cardCreation(book) {
   divPages.classList.add("bookPages");
   divPages.textContent = book.pages;
 
-  let divRead = document.createElement("div");
+  let divRead = document.createElement("button");
   bookLibrary.lastChild.appendChild(divRead);
   divRead.classList.add("bookRead");
   divRead.textContent = book.read;
@@ -70,6 +78,11 @@ function cardCreation(book) {
   for (let i = 0; i < removeBookButton.length; i++) {
     removeBookButton[i].addEventListener("click", removeBook, false);
   }
+
+  let readButton = document.querySelectorAll(".removeButton");
+  for (let i = 0; i < readButton.length; i++) {
+    readButton[i].addEventListener("click", readSwitch, false);
+  }
 }
 
 function libraryCreation() {
@@ -78,14 +91,42 @@ function libraryCreation() {
   });
 }
 
-function addBookToLibrary() {
-  title = prompt("Book Title:");
-  author = prompt("Book Author:");
-  pages = parseInt(prompt("Number of pages:"));
-  read = prompt("Have you read this book?");
+function addBookToLibrary(title, author, pages, read) {
+  // title = prompt("Book Title:");
+  // author = prompt("Book Author:");
+  // pages = parseInt(prompt("Number of pages:"));
+  // read = prompt("Have you read this book?");
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
   cardCreation(newBook);
+}
+function openAddBook() {
+  document.querySelector(".addBookForm").style.display = "block";
+  let title = document.getElementById("bookName");
+  let author = document.getElementById("bookAuthor");
+  let pages = document.getElementById("bookPages");
+  let read = document.getElementById("read");
+  if (
+    title.value !== "" ||
+    author.value !== "" ||
+    pages.value !== "" ||
+    read.value !== ""
+  ) {
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    read.value = "";
+  }
+}
+
+function closeForm() {
+  let title = document.getElementById("bookName").value;
+  let author = document.getElementById("bookAuthor").value;
+  let pages = document.getElementById("bookPages").value;
+  let read = document.getElementById("read").value;
+  console.log(title, author, pages, read);
+  addBookToLibrary(title, author, pages, read);
+  document.querySelector(".addBookForm").style.display = "none";
 }
 
 function libraryReset() {
@@ -95,7 +136,10 @@ function libraryReset() {
 }
 
 const addBookButton = document.querySelector(".addBookButton");
-addBookButton.addEventListener("click", addBookToLibrary, false);
+addBookButton.addEventListener("click", openAddBook, false);
+
+const closeFormButton = document.querySelector(".closeForm");
+closeFormButton.addEventListener("click", closeForm, false);
 
 libraryCreation();
 
@@ -114,3 +158,5 @@ libraryCreation();
 // Add button on each book's display to remove from library
 
 // Add button to change 'read' status
+// To facilitate this you will want to create the function that
+// toggles a book’s read status on your Book prototype instance.

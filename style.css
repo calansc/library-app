@@ -18,3 +18,15 @@
 .removeButton {
     width:100px;
 }
+.addBookForm {
+    display:none;
+}
+.formPopup {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    border: black solid 2px;
+    background-color: rgba(211, 210, 210, 1);
+    width: 80%;
+    height: 40%;
+}
