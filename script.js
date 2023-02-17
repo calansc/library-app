@@ -15,21 +15,13 @@ myLibrary.push(theHobbit);
 myLibrary.push(redRising);
 // const spellmonger = new Book("SpellMonger", "Terry Mancour", 624, "read");
 
-function bookReport() {
-  for (const book of myLibrary) {
-    console.log(book);
-  }
-}
-
 const bookLibrary = document.querySelector(".bookLibrary");
 const bookTile = document.querySelector(".bookTile");
 
 function removeBook() {
-  // console.log(this.id);
   let cardId = Array.from(this.parentNode.parentNode.children).indexOf(
     this.parentNode
   );
-  // console.log(cardId);
   let delFromLibrary = myLibrary.splice(cardId, 1);
   this.parentNode.remove();
 }
@@ -43,7 +35,6 @@ function readSwitch() {
 }
 
 function cardCreation(book) {
-  // console.log(book);
   let div = document.createElement("div");
   bookLibrary.appendChild(div);
   div.classList.add("bookTile");
