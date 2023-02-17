@@ -13,7 +13,8 @@ const theHobbit = new Book("The Hobbit", "JRR Tolken", 295, "not read");
 const redRising = new Book("Red Rising", "Pierce Brown", 382, "read");
 myLibrary.push(theHobbit);
 myLibrary.push(redRising);
-// const spellmonger = new Book("SpellMonger", "Terry Mancour", 624, "read");
+const spellmonger = new Book("SpellMonger", "Terry Mancour", 624, "read");
+myLibrary.push(spellmonger);
 
 const bookLibrary = document.querySelector(".bookLibrary");
 const bookTile = document.querySelector(".bookTile");
@@ -38,7 +39,6 @@ function cardCreation(book) {
   let div = document.createElement("div");
   bookLibrary.appendChild(div);
   div.classList.add("bookTile");
-  div.setAttribute("style", "border:red solid 1px");
 
   let divTitle = document.createElement("div");
   bookLibrary.lastChild.appendChild(divTitle);
@@ -60,10 +60,20 @@ function cardCreation(book) {
   divRead.classList.add("bookRead");
   divRead.textContent = book.read;
 
-  let removeButton = document.createElement("button");
+  let removeButton = document.createElement("div");
   bookLibrary.lastChild.appendChild(removeButton);
   removeButton.classList.add("removeButton");
-  removeButton.textContent = "Remove Book";
+  // removeButton.textContent = "Remove Book";
+
+  let removeButtonImg = document.createElement("img");
+  removeButtonImg.src = "close.svg";
+  removeButton.appendChild(removeButtonImg);
+  removeButtonImg.classList.add("removeButtonImg");
+
+  let removeButtonTooltip = document.createElement("span");
+  removeButton.appendChild(removeButtonTooltip);
+  removeButtonTooltip.classList.add("removeButtonTooltip");
+  removeButtonTooltip.textContent = "Delete book from library";
 
   let removeBookButton = document.querySelectorAll(".removeButton");
   for (let i = 0; i < removeBookButton.length; i++) {
