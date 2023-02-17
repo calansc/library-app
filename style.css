@@ -49,23 +49,28 @@
     font-weight: bold;
     font-size:1.2rem;
 }
-.bookRead {
-    width: 100px;
+.buttonContainer {
+    width: 96px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
 }
-.removeButton {
+/* .bookRead {
+    width: 32px;
+} */
+.buttons {
     width:32px;
     position: relative;
     display:inline-block;
 }
-.removeButtonImg {
+.buttonImg {
     width: 32px;
-    
 }
-.removeButton:hover {
+.buttons:hover {
     scale: 1.33;   
     transition: all 100ms ease-in-out ;
 }
-.removeButtonTooltip {
+.buttonTooltip {
     visibility: hidden;
     width: 120px;
     background-color: var(--main-color);
@@ -80,7 +85,7 @@
     position: absolute;
     z-index: 1;
 }
-.removeButton:hover .removeButtonTooltip {
+.buttons:hover .buttonTooltip {
     visibility: visible;
 }
 .addBookForm {

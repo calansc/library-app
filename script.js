@@ -20,18 +20,18 @@ const bookLibrary = document.querySelector(".bookLibrary");
 const bookTile = document.querySelector(".bookTile");
 
 function removeBook() {
-  let cardId = Array.from(this.parentNode.parentNode.children).indexOf(
-    this.parentNode
-  );
+  let cardId = Array.from(
+    this.parentNode.parentNode.parentNode.parentNode.children
+  ).indexOf(this.parentNode.parentNode.parentNode);
   let delFromLibrary = myLibrary.splice(cardId, 1);
-  this.parentNode.remove();
+  this.parentNode.parentNode.parentNode.remove();
 }
 
 function readSwitch() {
-  if (this.textContent === "read") {
-    this.textContent = "not read";
+  if (this.src.endsWith("bookread.svg")) {
+    this.src = "bookunread.svg";
   } else {
-    this.textContent = "read";
+    this.src = "bookread.svg";
   }
 }
 
@@ -55,24 +55,40 @@ function cardCreation(book) {
   divPages.classList.add("bookPages");
   divPages.textContent = `${book.pages} pages`;
 
-  let divRead = document.createElement("button");
-  bookLibrary.lastChild.appendChild(divRead);
-  divRead.classList.add("bookRead");
-  divRead.textContent = book.read;
+  let buttons = document.createElement("div");
+  bookLibrary.lastChild.appendChild(buttons);
+  buttons.classList.add("buttonContainer");
+
+  let divRead = document.createElement("div");
+  buttons.appendChild(divRead);
+  divRead.classList.add("buttons");
+  // divRead.textContent = book.read;
+
+  let readImg = document.createElement("img");
+  readImg.src = "bookread.svg";
+  divRead.appendChild(readImg);
+  readImg.classList.add("buttonImg");
+  readImg.classList.add("bookRead");
+
+  let readImgTooltip = document.createElement("span");
+  divRead.appendChild(readImgTooltip);
+  readImgTooltip.classList.add("buttonTooltip");
+  readImgTooltip.textContent = "Change Read / Not Read";
 
   let removeButton = document.createElement("div");
-  bookLibrary.lastChild.appendChild(removeButton);
-  removeButton.classList.add("removeButton");
+  buttons.appendChild(removeButton);
+  removeButton.classList.add("buttons");
   // removeButton.textContent = "Remove Book";
 
   let removeButtonImg = document.createElement("img");
   removeButtonImg.src = "close.svg";
   removeButton.appendChild(removeButtonImg);
-  removeButtonImg.classList.add("removeButtonImg");
+  removeButtonImg.classList.add("buttonImg");
+  removeButtonImg.classList.add("removeButton");
 
   let removeButtonTooltip = document.createElement("span");
   removeButton.appendChild(removeButtonTooltip);
-  removeButtonTooltip.classList.add("removeButtonTooltip");
+  removeButtonTooltip.classList.add("buttonTooltip");
   removeButtonTooltip.textContent = "Delete book from library";
 
   let removeBookButton = document.querySelectorAll(".removeButton");
