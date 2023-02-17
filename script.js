@@ -62,7 +62,7 @@ function cardCreation(book) {
   let divPages = document.createElement("div");
   bookLibrary.lastChild.appendChild(divPages);
   divPages.classList.add("bookPages");
-  divPages.textContent = book.pages;
+  divPages.textContent = `${book.pages} pages`;
 
   let divRead = document.createElement("button");
   bookLibrary.lastChild.appendChild(divRead);
@@ -79,10 +79,12 @@ function cardCreation(book) {
     removeBookButton[i].addEventListener("click", removeBook, false);
   }
 
-  let readButton = document.querySelectorAll(".removeButton");
+  let readButton = document.querySelectorAll(".bookRead");
   for (let i = 0; i < readButton.length; i++) {
     readButton[i].addEventListener("click", readSwitch, false);
   }
+  let addCardBottom = document.querySelector(".addCard");
+  addCardBottom.parentNode.appendChild(addCardBottom);
 }
 
 function libraryCreation() {

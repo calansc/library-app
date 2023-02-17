@@ -10,10 +10,21 @@
 .bookTile {
     width: 128px;
     display:grid;
+    justify-items: center;
     padding:8px;
+}
+.addCard {
+    width: 128px;
+    display:grid;
+    justify-items: center;
+    padding:8px;
+    border: red solid 1px;
 }
 .bookTitle {
     font-weight: bold;
+}
+.bookRead {
+    width: 100px;
 }
 .removeButton {
     width:100px;
