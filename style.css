@@ -88,15 +88,52 @@
 .buttons:hover .buttonTooltip {
     visibility: visible;
 }
+.addButton {
+    position: relative;
+    display: inline-block;
+}
+.addTooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--main-color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    font-size:.7rem;
+    top:90%;
+    left:50%;
+    margin-left:-64px;
+
+    position: absolute;
+    z-index: 1;
+}
+.addButton:hover {
+    scale: 1.33;
+    /* transform: rotate(90deg); */
+    transition: all 100ms ease-in-out;
+}
+.addButton:hover .addTooltip {
+    visibility: visible;
+}
 .addBookForm {
     display:none;
 }
 .formPopup {
-    position: fixed;
-    top: 10%;
-    left: 10%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: black solid 2px;
-    background-color: rgba(211, 210, 210, 1);
-    width: 80%;
-    height: 40%;
+    border-radius: 8px;
+    background-color: var(--main-color);
+    width: 30%;
+    height: 30%;
+    display:grid;
+    justify-items: center;
+    align-items: center;
+}
+#bookName, #bookAuthor, #bookPages, #read {
+    padding:4px;
+    background-color: var(--bg-color);
+    border-radius: 8px;
 }
