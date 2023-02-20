@@ -65,7 +65,11 @@ function cardCreation(book) {
   // divRead.textContent = book.read;
 
   let readImg = document.createElement("img");
-  readImg.src = "bookunread.svg";
+  if (book.read === "read") {
+    readImg.src = "bookread.svg";
+  } else {
+    readImg.src = "bookunread.svg";
+  }
   divRead.appendChild(readImg);
   readImg.classList.add("buttonImg");
   readImg.classList.add("bookRead");
@@ -162,11 +166,16 @@ function libraryReset() {
 const addBookButton = document.querySelector(".addBookButton");
 addBookButton.addEventListener("click", openAddBook, false);
 
-const addFormButton = document.querySelector(".addForm");
-addFormButton.addEventListener("click", addForm, false);
+// const addFormButton = document.querySelector(".addForm");
+// addFormButton.addEventListener("click", addForm, false);
 
-const closeFormButton = document.querySelector(".closeForm");
-closeFormButton.addEventListener("click", closeForm, false);
+// const closeFormButton = document.querySelector(".closeForm");
+// closeFormButton.addEventListener("click", closeForm, false);
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  addForm();
+});
 
 libraryCreation();
 

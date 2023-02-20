@@ -19,16 +19,30 @@
     </div>
     <div class="addBookForm">
         <div class="formPopup">
-            <input type="text" id="bookName" placeholder="Book Name" required>
+            <!-- <input type="text" id="bookName" placeholder="Book Name" required>
             <input type="text" id="bookAuthor" placeholder="Author Name" required>
             <input type="number" id="bookPages" placeholder="Page Count" required>
             <input type="text" id="read" placeholder="read?">
             <div class="formButtons">
                 <img src="add.svg" class="addForm">
-                <img src="close.svg" class="closeForm">
+                <img src="close.svg" class="closeForm"> -->
+            <form id="form" action="/" method="GET">
+                <label for="bookName">Title:</label>
+                <input id="bookName" name="bookName" type="text" required>
+                <label for="bookAuthor">Author:</label>
+                 <input id="bookAuthor" name="bookAuthor" type="text" required>
+                <label for="bookPages">Page Count:</label>
+                <input id="bookPages" name="bookPages" type="number" required>
+                <label for="read">Read?</label>
+                <select id="read" name="read">
+                    <option value="read">Read</option>
+                    <option value="not read">Not Read</option>
+                </select>
+                
+                <button type="submit" id="submit">Add Book</button>
+            </form>
             </div>
         </div>
-
     </div>
     <script src="script.js"></script>
 </body>
