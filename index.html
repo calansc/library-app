@@ -19,27 +19,29 @@
     </div>
     <div class="addBookForm">
         <div class="formPopup">
-            <!-- <input type="text" id="bookName" placeholder="Book Name" required>
-            <input type="text" id="bookAuthor" placeholder="Author Name" required>
-            <input type="number" id="bookPages" placeholder="Page Count" required>
-            <input type="text" id="read" placeholder="read?">
-            <div class="formButtons">
-                <img src="add.svg" class="addForm">
-                <img src="close.svg" class="closeForm"> -->
             <form id="form" action="/" method="GET">
+                <div class="formDiv">
                 <label for="bookName">Title:</label>
-                <input id="bookName" name="bookName" type="text" required>
+                <input id="bookName" name="bookName" type="text" placeholder="Book Title" required>
+                </div>
+                <div class="formDiv">
                 <label for="bookAuthor">Author:</label>
-                 <input id="bookAuthor" name="bookAuthor" type="text" required>
-                <label for="bookPages">Page Count:</label>
-                <input id="bookPages" name="bookPages" type="number" required>
+                 <input id="bookAuthor" name="bookAuthor" type="text" placeholder="Author Name"required>
+                </div>
+                <div class="formDiv">                 <label for="bookPages">Page Count:</label>
+                <input id="bookPages" name="bookPages" type="number" placeholder="pages" required>
+                </div>
+                <div class="formDiv">
                 <label for="read">Read?</label>
                 <select id="read" name="read">
-                    <option value="read">Read</option>
+                    <option value="read" selected>Read</option>
                     <option value="not read">Not Read</option>
                 </select>
-                
-                <button type="submit" id="submit">Add Book</button>
+                </div>
+                <div class="submitDiv">
+                <input type="image" name="submit" src="add.svg" alt="Submit">
+                <input type="image" name="close" src="close.svg" class="closeForm">
+                </div> 
             </form>
             </div>
         </div>

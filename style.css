@@ -13,7 +13,7 @@
 .title {
     font-weight: bold;
     font-size: 24px;
-    background-color: var(--main-color);
+    background: linear-gradient(var(--main-color), #7e7160);
     padding: 10px;
     box-shadow: 0px 10px 10px -10px var(--shadow-color);
 }
@@ -33,7 +33,7 @@
     justify-items: center;
     align-items: center;
     padding:16px;
-    background-color: var(--secondary-color);
+    background: linear-gradient(var(--secondary-color), #6c7564);
     /* border:var(--main-color) solid 1px; */
     border-radius: 8px;
     box-shadow: 10px 10px 10px -10px var(--shadow-color);
@@ -48,6 +48,10 @@
 .bookTitle {
     font-weight: bold;
     font-size:1.2rem;
+    text-align: center;
+}
+.bookAuthor {
+    text-align: center;
 }
 .buttonContainer {
     width: 96px;
@@ -125,12 +129,19 @@
     transform: translate(-50%, -50%);
     border: black solid 2px;
     border-radius: 8px;
-    background-color: var(--main-color);
-    width: 30%;
-    height: 30%;
+    background: linear-gradient(var(--main-color), var(--tertiary-color));
+    width: 200px;
+    height: 240px;
     display:grid;
     justify-items: center;
     align-items: center;
+    padding:16px;
+}
+.formDiv {
+    padding-bottom: 8px;
+}
+.submitDiv {
+    text-align: center;
 }
 #bookName, #bookAuthor, #bookPages, #read {
     padding:4px;

@@ -169,8 +169,8 @@ addBookButton.addEventListener("click", openAddBook, false);
 // const addFormButton = document.querySelector(".addForm");
 // addFormButton.addEventListener("click", addForm, false);
 
-// const closeFormButton = document.querySelector(".closeForm");
-// closeFormButton.addEventListener("click", closeForm, false);
+const closeFormButton = document.querySelector(".closeForm");
+closeFormButton.addEventListener("click", closeForm, false);
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
