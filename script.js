@@ -1,14 +1,28 @@
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.info = function () {
-    return `${title} by ${author}, ${pages}, ${read}`;
-  };
+// function Book(title, author, pages, read) {
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.read = read;
+//   this.info = function () {
+//     return `${title} by ${author}, ${pages}, ${read}`;
+//   };
+// }
+
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+
+  logBook() {
+    console.log(`${this.title} by ${this.author}, ${this.pages}, ${this.read}`);
+  }
 }
+
 const theHobbit = new Book("The Hobbit", "JRR Tolken", 295, "not read");
 const redRising = new Book("Red Rising", "Pierce Brown", 382, "read");
 myLibrary.push(theHobbit);
@@ -115,10 +129,6 @@ function libraryCreation() {
 }
 
 function addBookToLibrary(title, author, pages, read) {
-  // title = prompt("Book Title:");
-  // author = prompt("Book Author:");
-  // pages = parseInt(prompt("Number of pages:"));
-  // read = prompt("Have you read this book?");
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
   cardCreation(newBook);
@@ -196,3 +206,11 @@ libraryCreation();
 // Add button to change 'read' status
 // To facilitate this you will want to create the function that
 // toggles a book’s read status on your Book prototype instance.
+
+// Refactor using classes...
+// have a class with constructor taking values from new book input
+// and methods to add the book to the page with same functionality
+// as it currently has. Change to rewrite the library with each addition?
+// rebuilding from the array each change? Array will be representative of
+// page display and page builds from it. So the class constructor and
+// methods will affect the array and the page will build from there?
